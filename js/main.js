@@ -8,4 +8,13 @@ function buttonClicked(){
     //console.log(document.getElementById("text").innerHTML);
 }
 
+var hobbies = ["pizza", "hockey", "travel"];
+
+//console.log("I no longer enjoy", hobbies.pop());
+
+hobbies.push("chipotle");
+
+
+
+
 btn.addEventListener ("click", buttonClicked);
