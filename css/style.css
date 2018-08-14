@@ -75,20 +75,21 @@ article img{
     text-align: center;*/
 }
 
-.my-input {
+.my-input, .my-textarea {
     display: block;
     width: 90%;
     margin: 10px;
     padding: 10px 20px;
     border-radius: 3px;
+    resize: none;
 }
 
-.my-input:focus {
+/*.my-input:focus {
     background: #22afb4;
     color: #000000;
     outline: none;
     border: 1px solid #000000;
-}
+}*/
 
 article:active {
     opacity: .4;
