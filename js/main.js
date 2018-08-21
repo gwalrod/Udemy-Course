@@ -20,20 +20,14 @@ function buttonClicked(){
 
 btn.addEventListener ("click", buttonClicked);
 
+$(document).ready(function(){
+
+    alert("Loaded");
+
+    document.getElementById('text');
+    $('#text').
 
 
-function missingno(numbers){
-    var missing = -1;
-    var sorted = numbers.sort(function(a, b){return a - b;})
 
-    for(i = sorted[0]; i <= numbers.length - 1; i++){
-        if(numbers.indexOf(i) === -1){
-            missing = i;
-        }
-    }
 
-    return missing;
-}
-var numbers = [3, 8, 7, 9, 6, 1, 12, 5, 14, 2, 19, 16, 18, 11, 10, 4, 13, 17, 20];
-
-console.log(missingno(numbers))
+});

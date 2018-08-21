@@ -99,3 +99,98 @@ console.log(computed);
 
 var p = "This is a phrase."
 saySomething(p)
+
+
+
+//exercise 
+
+function missingno(numbers){
+    var missing = -1;
+    var sorted = numbers.sort(function(a, b){return a - b;})
+
+    for(i = sorted[0]; i <= numbers.length - 1; i++){
+        if(numbers.indexOf(i) === -1){
+            missing = i;
+        }
+    }
+
+    return missing;
+}
+var numbers = [3, 8, 7, 9, 6, 1, 12, 5, 14, 2, 19, 16, 18, 11, 10, 4, 13, 17, 20];
+
+console.log(missingno(numbers))
+
+//classes
+
+class Animal {
+
+    constructor(name, height, weight){
+        console.log("Created Animal named", name)
+        this.name = name;
+        this.height = height;
+        this.weight= weight;
+    }
+
+    nameLength(){
+        return this.name.length;
+    }
+
+}
+
+class Dog extends Animal{
+
+    constructor(name, height, weight, barkVolume, leashColor, speed){
+        super(name, height, weight);
+        this.barkVolume = barkVolume;
+        this.leashColor = leashColor;
+        this.speed = speed;
+    }
+
+    bark(){
+        if(this.barkVolume > 50){
+            console.log(this.name, "barks loudly!, (volume:", this.barkVolume, ")");
+        }else{
+            console.log(this.name, "barks timidly , (volume:", this.barkVolume, ")");
+        }
+
+    }
+    
+}
+
+class Fish extends Animal{
+
+    constructor(name, height, weight, swimSpeed){
+        super(name, height, weight);
+        this.swimSpeed = swimSpeed;
+    }
+
+    swim(chaserSpeed){
+        if(this.swimSpeed > 50){
+            console.log(this.name, "swims around quickly! (speed:", this.swimSpeed +")")
+        }else{
+            console.log(this.name, "swims around slowly. (speed:", this.swimSpeed +")")
+        }
+
+        if(this.swimSpeed > chaserSpeed){
+            console.log(this.name, "got away!");
+        }else{
+            console.log(this.name, "was caught!");
+        }
+    
+    }
+
+}
+
+var king = new Dog("King", 45, 92, 72, "red", 52);
+var goldie = new Fish("Goldie", 2, .1, 46)
+
+
+king.bark();
+goldie.swim(king.speed);
+
+Animal.planet = "Earth";
+
+var dog = new Animal("Fido", 25, 90);
+var fish = new Animal("Goldie", 2, .02);
+
+console.log(fish.constructor.planet);
