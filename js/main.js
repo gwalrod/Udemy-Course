@@ -20,37 +20,52 @@ function buttonClicked(){
 
 btn.addEventListener ("click", buttonClicked);
 
-function alertMe(){
-   alert("Me")
-}
 
 $(document).ready(function(){
-    
-    alert("Loaded");
-
-    /*document.getElementById('text').innerHTML = "This is my text";
-    $('#text').html("This is now my text");*/
-
-    /*document.getElementsByClassName('my-input')[0].value = "Value of input";
-    $('.my-input').val("New Input Val");*/
-
     var el = document.getElementById('text');
 
-    console.log("EL in Vanilla JS:", el);
+    $('[href="https://google.com"]').on('click', function(event){
+        console.log("linking to google?");
+        event.preventDefault();
+        return false;
+    });
 
-    console.log("EL in jQuery:", $(el));
+    $('[data-trigger="dropdown"]').on('mouseenter', function(){
+        var submenu = $(this).parent().find('.submenu');
+        submenu.fadeIn(300);
 
-    document.getElementById('go-button').addEventListener('click', alertMe);
+       $('.profile-menu').on('mouseleave', function(){
+           submenu.fadeOut(300);
+       })
 
-    $('#go-button').on('click', function(){
-        alert("Fantastic job clicking that button!")
-    })
+    });
 
-    //mouseLEAVE mouseenter mouseup mousedown
+    $('#prepend, #append, #replace').on('click', function(e){
+        e.preventDefault();
 
-    $('#go-button').hover(function(){
-       console.log("Fantastic job hovering over that button!")
-    })
+        var el = $(e.currentTarget);
+        var action = el.attr('id');
+        var content = $('.text').val();
+
+        if(action == "prepend"){
+            console.log("Prepending...");
+            $('#text').prepend(content);
+
+        }else if(action == "append"){
+            console.log("Appending...");
+            $('#text').append(content);
 
 
-})
+        }else if(action == "replace"){
+            console.log("Replacing...");
+            $('#text').html(content);
+
+
+        }
+
+        $('text').val('');
+
+    });
+
+
+});
