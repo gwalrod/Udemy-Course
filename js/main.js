@@ -32,6 +32,15 @@ $(document).ready(function(){
         event.preventDefault();
 
         if(event.which == 3){
+
+            $('.hidden').removeClass('shown');
+
+            if($(event.target).is('img')){
+                $('.saveimg, .newtab').addClass('shown');
+            }else if($(event.target).is('a')){
+                $('.newtab').addClass('shown');
+            }
+
             console.log(event.pageY, event.pageX);
 
             $('#context').css({
@@ -41,7 +50,6 @@ $(document).ready(function(){
 
             $('#context').fadeIn();
             return false;
-
         }
 
         $('#context').fadeOut();
