@@ -180,3 +180,31 @@ section {
     width: 900px;
     margin: auto;
 }
+
+#context {
+    display: inline-block;
+    position: absolute;
+    background: #fff;
+    box-shadow: 2px 2px 15px rgba (0, 0, 0, .5)!important;
+    display: none;
+}
+
+.context-menu{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.context-menu a{
+    display: block;
+    width: 200px;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    text-shadow: none;
+    font-weight: 600;
+}
+
+.context-menu a:hover {
+    background-color: #eee;
+}

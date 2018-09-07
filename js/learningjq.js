@@ -55,3 +55,14 @@ function alertMe(){
 
 
 });
+
+//switch
+
+switch(event.which){
+    case 1:
+        console.log("Clicked left mouse button");
+        break;
+    case 3:
+        console.log("Clicked right mouse button");
+        break;
+}

@@ -24,6 +24,30 @@ btn.addEventListener ("click", buttonClicked);
 $(document).ready(function(){
     var el = document.getElementById('text');
 
+    $(document).on('contextmenu', function(){
+        return false;
+    });
+
+    $(document).on('mousedown', function(event){
+        event.preventDefault();
+
+        if(event.which == 3){
+            console.log(event.pageY, event.pageX);
+
+            $('#context').css({
+                top: event.pageY,
+                left: event.pageX
+            });
+
+            $('#context').fadeIn();
+            return false;
+
+        }
+
+        $('#context').fadeOut();
+
+    });
+
     $('[href="https://google.com"]').on('click', function(event){
         console.log("linking to google?");
         event.preventDefault();
