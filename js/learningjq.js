@@ -66,3 +66,57 @@ switch(event.which){
         console.log("Clicked right mouse button");
         break;
 }
+
+//mousedown 
+
+$(document).on('mousedown', function(event){
+    event.preventDefault();
+
+    if(event.which == 3){
+
+        $('.hidden').removeClass('shown');
+
+        if($(event.target).is('img')){
+            $('.saveimg, .newtab').addClass('shown');
+        }else if($(event.target).is('a')){
+            $('.newtab').addClass('shown');
+        }
+
+        console.log(event.pageY, event.pageX);
+
+        $('#context').css({
+            top: event.pageY,
+            left: event.pageX
+        });
+
+        $('#context').fadeIn();
+        return false;
+    }
+
+    $('#context').fadeOut();
+
+});
+
+//valid and invalid
+
+window.passed = 0;
+window.hasAt = 0;
+window.hasDot = 0;
+
+$('input[name=email]').on('keyup', function(){
+
+    if($(this).val().indexOf('@') > - 1){
+        hasAt++;
+
+        if($(this).val().indexOf('.') > -1){
+            hasDot++;
+        }
+    }
+
+    if(window.hasAt > 1 && window.hasDot > 1){
+        $('.status').html('VALID');
+    }else{
+        $('.status').html('INVALID');
+    }
+
+});

@@ -24,37 +24,19 @@ btn.addEventListener ("click", buttonClicked);
 $(document).ready(function(){
     var el = document.getElementById('text');
 
-    $(document).on('contextmenu', function(){
+    console.log($('.submenu a').first().text());
+    console.log($('.submenu a').last().text());
+
+
+    //$('#text').find('p').addClass('HAH');
+
+    //wQuery(".my-selector").addClass("MYNEWCLASS");
+
+    //wQuery("#context").addClass("HELLO");    
+
+    /*$(document).on('contextmenu', function(){
         return false;
-    });
-
-    $(document).on('mousedown', function(event){
-        event.preventDefault();
-
-        if(event.which == 3){
-
-            $('.hidden').removeClass('shown');
-
-            if($(event.target).is('img')){
-                $('.saveimg, .newtab').addClass('shown');
-            }else if($(event.target).is('a')){
-                $('.newtab').addClass('shown');
-            }
-
-            console.log(event.pageY, event.pageX);
-
-            $('#context').css({
-                top: event.pageY,
-                left: event.pageX
-            });
-
-            $('#context').fadeIn();
-            return false;
-        }
-
-        $('#context').fadeOut();
-
-    });
+    });*/
 
     $('[href="https://google.com"]').on('click', function(event){
         console.log("linking to google?");
@@ -98,6 +80,23 @@ $(document).ready(function(){
         $('text').val('');
 
     });
+
+
+    $('textarea').focusin(function(){
+        console.log("Focused in on the text area");
+    });
+
+    $('textarea').focusout(function(){
+        console.log("Text area has lost focus");
+    });
+
+   $('input').focusout(function(){
+       if($(this).val().indexOf('@') > -1 && $(this).val().indexOf('.') > -1){
+           $('.status').html("Valid Email");
+       }else{
+           $('.status').html("Your email is invalid");
+       }
+   });
 
 
 });
